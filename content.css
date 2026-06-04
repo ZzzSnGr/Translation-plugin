@@ -1,0 +1,12 @@
+#quick-translate-tooltip {
+  all: initial;
+  position: fixed !important;
+  z-index: 2147483647 !important;
+  pointer-events: none !important;
+  max-width: calc(100vw - 40px) !important;
+  word-break: break-word !important;
+}
+
+#quick-translate-tooltip * {
+  all: unset;
+}

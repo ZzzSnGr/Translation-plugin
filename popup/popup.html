@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fast Translation - 设置</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Fast Translation</h1>
+      <span class="version">v1.0.0</span>
+    </div>
+
+    <div class="section">
+      <div class="toggle-row">
+        <span>翻译功能</span>
+        <label class="switch">
+          <input type="checkbox" id="enableToggle" checked>
+          <span class="slider"></span>
+        </label>
+      </div>
+    </div>
+
+    <div class="section">
+      <label class="label" for="apiEndpoint">API 端点</label>
+      <input type="text" id="apiEndpoint" list="apiEndpoints" placeholder="输入 DeepLX 服务地址，如 http://your-server:1188">
+      <datalist id="apiEndpoints">
+        <option value="http://localhost:1188">本地部署</option>
+        <option value="https://deeplx.owo.network">公共服务</option>
+        <option value="https://api.deeplx.org">公共服务</option>
+      </datalist>
+      <div class="hint">
+        <a href="https://github.com/OwO-Network/DeepLX" target="_blank">如何部署 DeepLX？</a>
+      </div>
+      <div class="status-indicator" id="serviceStatus">
+        <span class="dot"></span>
+        <span class="status-label" id="statusLabel">检测中...</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <label class="label" for="token">Token（可选）</label>
+      <div class="input-row">
+        <input type="password" id="token" placeholder="如果服务端设置了 Token 才需填写" autocomplete="off">
+        <button id="toggleTokenBtn" class="btn-icon" title="显示/隐藏">👁</button>
+      </div>
+    </div>
+
+    <div class="section">
+      <label class="label" for="targetLang">目标语言</label>
+      <select id="targetLang">
+        <option value="ZH">中文 (Chinese)</option>
+        <option value="EN">英文 (English)</option>
+        <option value="FR">法文 (Français)</option>
+        <option value="RU">俄文 (Русский)</option>
+        <option value="ES">西班牙文 (Español)</option>
+      </select>
+    </div>
+
+    <div class="section">
+      <label class="label" for="textColor">翻译文本颜色</label>
+      <div class="color-row">
+        <input type="color" id="textColor" value="#ffffff">
+        <span class="color-hex" id="colorHex">#ffffff</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="shortcut-info">
+        <span class="shortcut-key">Ctrl+Shift+T</span>
+        <span>快速开关翻译功能</span>
+      </div>
+    </div>
+
+    <div class="footer">
+      <a href="#" id="welcomeLink" class="footer-link">DeepLX状态</a>
+      <div class="footer-buttons">
+        <button id="resetBtn" class="btn-secondary">恢复默认</button>
+        <button id="saveBtn" class="btn-primary">保存设置</button>
+      </div>
+    </div>
+
+    <div id="toast" class="toast"></div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

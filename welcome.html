@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fast Translation - 安装引导</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #1e1e2e; color: #cdd6f4;
+      display: flex; justify-content: center; align-items: center;
+      min-height: 100vh; padding: 20px;
+    }
+    .card {
+      background: #313244; border-radius: 16px; padding: 40px;
+      max-width: 520px; width: 100%; text-align: center;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    }
+    .icon { font-size: 64px; margin-bottom: 16px; }
+    h1 { font-size: 24px; margin-bottom: 8px; color: #cdd6f4; }
+    .version { color: #6c7086; font-size: 13px; margin-bottom: 24px; }
+    .status-box {
+      background: #1e1e2e; border-radius: 12px; padding: 24px;
+      margin-bottom: 24px; border: 1px solid #45475a;
+    }
+    .status-row {
+      display: flex; align-items: center; justify-content: center;
+      gap: 10px; margin-bottom: 12px;
+    }
+    .dot {
+      width: 12px; height: 12px; border-radius: 50%;
+      display: inline-block;
+    }
+    .dot-ok { background: #a6e3a1; box-shadow: 0 0 8px #a6e3a1; }
+    .dot-err { background: #f38ba8; box-shadow: 0 0 8px #f38ba8; }
+    .dot-checking { background: #fab387; animation: pulse 1s infinite; }
+    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+    .status-text { font-size: 16px; font-weight: 500; }
+    .step { text-align: left; margin: 8px 0; padding: 8px 12px;
+      background: #45475a; border-radius: 8px; font-size: 13px; }
+    .step span { color: #89b4fa; font-weight: 600; margin-right: 6px; }
+    .btn {
+      display: inline-block; padding: 12px 28px; border: none;
+      border-radius: 8px; font-size: 15px; font-weight: 600;
+      cursor: pointer; transition: 0.2s; margin: 6px;
+    }
+    .btn-primary { background: #89b4fa; color: #1e1e2e; }
+    .btn-primary:hover { background: #74c7ec; }
+    .btn-secondary { background: #45475a; color: #cdd6f4; }
+    .btn-secondary:hover { background: #585b70; }
+    .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    .hidden { display: none; }
+    .code {
+      background: #11111b; color: #a6e3a1; padding: 8px 12px;
+      border-radius: 6px; font-family: "Cascadia Code", "Consolas", monospace;
+      font-size: 13px; word-break: break-all; margin: 8px 0;
+    }
+    .footer-text { color: #6c7086; font-size: 12px; margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="icon">&#x1F310;</div>
+    <h1>Fast Translation</h1>
+    <div class="version">v1.0.0</div>
+
+    <div class="status-box">
+      <div class="status-row">
+        <span class="dot dot-checking" id="statusDot"></span>
+        <span class="status-text" id="statusText">正在检测翻译服务...</span>
+      </div>
+      <div id="statusMsg" style="color:#6c7086;font-size:13px;"></div>
+    </div>
+
+    <div id="stepsOk" class="hidden">
+      <p style="color:#a6e3a1;margin-bottom:12px;">翻译服务运行正常，可以开始使用了！</p>
+      <button class="btn btn-primary" id="closeBtnOk">关闭此页面</button>
+    </div>
+
+    <div id="stepsErr" class="hidden">
+      <p style="color:#f38ba8;margin-bottom:12px;">翻译服务未启动，请按以下步骤操作：</p>
+      <div class="step"><span>1</span>双击 <b>LaunchDeepLX.vbs</b> 启动翻译服务</div>
+      <div class="step"><span>2</span>点击"重新检测"，绿色即表示成功</div>
+      <div class="step"><span>3</span>双击 <b>设置开机自启.vbs</b>， DeepLX 可开机自动运行（可选）</div>
+      <div style="margin-top:16px;">
+        <button class="btn btn-primary" id="retryBtn">重新检测</button>
+        <button class="btn btn-secondary" id="closeBtnErr">稍后设置</button>
+      </div>
+    </div>
+
+    <div class="footer-text">如有DeepLX相关疑问，请查看 <a href="https://github.com/OwO-Network/DeepLX" target="_blank" style="color:#89b4fa;">DeepLX 文档</a></div>
+  </div>
+
+  <script src="welcome.js"></script>
+</body>
+</html>
