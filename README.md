@@ -1,6 +1,6 @@
 # Fast Translation - Chrome 扩展
 
-选中文本后自动显示翻译结果，基于 DeepLX（DeepL 免费 API）。
+选中文本后自动显示翻译结果，基于 DeepLX（DeepL 免费 API），感谢 https://github.com/OwO-Network/DeepLX 开源。
 
 ## 项目结构
 
@@ -96,5 +96,5 @@
 ## 技术栈
 
 - Chrome Extension Manifest V3
-- DeepLX（Go 语言，DeepL 免费 API 代理）
+- DeepLX（Go 语言，DeepL 免费 API 代理），感谢 https://github.com/OwO-Network/DeepLX 开源
 - 无第三方依赖
