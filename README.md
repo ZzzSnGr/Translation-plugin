@@ -1,4 +1,4 @@
-    # Fast Translation - Chrome/Edge 扩展
+# Fast Translation - Chrome/Edge 扩展
 
 1. 选中文本后自动显示翻译结果，基于 DeepLX，感谢[ https://github.com/OwO-Netork/DeepLX](https://github.com/OwO-Netork/DeepLX) 开源；
 2. 适合在与AI使用英文沟通的过程中，点击不清晰意译的词语进行快速翻译;
