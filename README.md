@@ -1,31 +1,11 @@
-# Fast Translation - Chrome 扩展
+    # Fast Translation - Chrome/Edge 扩展
 
-选中文本后自动显示翻译结果，基于 DeepLX（DeepL 免费 API），感谢 https://github.com/OwO-Network/DeepLX 开源。
-
-## 项目结构
-
-```
-.
-├── manifest.json           # Chrome 扩展配置 (Manifest V3)
-├── background.js            # 后台服务（设置管理、快捷键、首次安装引导）
-├── content.js               # 内容脚本（选中检测、翻译请求、缓存、结果显示）
-├── content.css              # 翻译提示框隔离样式
-├── welcome.html             # 首次安装引导页（服务状态检测）
-├── welcome.js               # 引导页逻辑（CSP 合规，无内联脚本）
-├── deeplx.exe               # DeepLX 本地服务（Windows amd64，v1.2.2）
-├── LaunchDeepLX.vbs         # 静默启动脚本（无窗口、无弹窗，开机自启用）
-├── LaunchDeepLX_Msg.vbs     # 带消息的启动脚本（手动双击，有成功/失败提示）
-├── 启动DeepLX.bat           # 调用静默 VBS 的批处理
-├── 设置开机自启.vbs         # 创建开机自启快捷方式（指向静默 VBS）
-├── popup/
-│   ├── popup.html           # 设置弹窗（含服务状态指示器）
-│   ├── popup.js             # 设置逻辑（含服务连接检测）
-│   └── popup.css            # 弹窗样式（深色 Catppuccin 主题）
-└── icons/
-    ├── icon16.png
-    ├── icon48.png
-    └── icon128.png
-```
+1. 选中文本后自动显示翻译结果，基于 DeepLX，感谢[ https://github.com/OwO-Netork/DeepLX](https://github.com/OwO-Netork/DeepLX) 开源；
+2. 适合在与AI使用英文沟通的过程中，点击不清晰意译的词语进行快速翻译;
+3. 可自定义翻译文本颜色，在各个主题背景中能够正常显示。
+![alt text](image-2.png)
+![alt text](image.png)
+![alt text](image-3.png)
 
 ## 快速开始
 
@@ -54,7 +34,7 @@
 - 在任意网页上**选中文本**，翻译结果将自动显示在选中文字下方
 - 翻译文本会跟随选中文字一起滚动，相对距离不变
 - 按 `Esc` 关闭翻译提示
-- 按 `Ctrl+Shift+T` 开关翻译功能
+- 按 `Ctrl+B` 开关翻译功能
 - 点击工具栏图标可进入设置弹窗，保存后自动关闭
 
 ## 设置选项
@@ -96,5 +76,5 @@
 ## 技术栈
 
 - Chrome Extension Manifest V3
-- DeepLX（Go 语言，DeepL 免费 API 代理），感谢 https://github.com/OwO-Network/DeepLX 开源
+- DeepLX（Go 语言，DeepL 免费 API 开源，[text](https://github.com/OwO-Netork/DeepLX)）
 - 无第三方依赖

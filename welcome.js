@@ -14,11 +14,14 @@ async function checkStatus() {
   err.classList.add('hidden')
 
   try {
-    const response = await fetch(endpoint + '/translate', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ text: 'test', target_lang: 'ZH' })
+    const controller = new AbortController()
+    const timeoutId = setTimeout(() => controller.abort(), 5000)
+
+    const response = await fetch(endpoint + '/', {
+      method: 'GET',
+      signal: controller.signal
     })
+    clearTimeout(timeoutId)
 
     if (response.ok) {
       dot.className = 'dot dot-ok'
@@ -41,7 +44,7 @@ function showError() {
 
   dot.className = 'dot dot-err'
   text.textContent = '翻译服务未连接'
-  msg.textContent = '请确认已运行 启动DeepLX.bat'
+  msg.textContent = '请确认已运行 LaunchDeepLX.vbs'
   err.classList.remove('hidden')
 }
 

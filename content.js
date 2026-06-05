@@ -78,17 +78,32 @@ async function translateDirect(text) {
     headers['Authorization'] = `Bearer ${settings.token}`
   }
 
-  const response = await fetch(`${settings.apiEndpoint}/translate`, {
-    method: 'POST',
-    headers,
-    body: JSON.stringify(body)
-  })
+  const url = `${settings.apiEndpoint}/translate`
+  console.log('[Fast Translation] Request:', url, JSON.stringify(body))
+
+  let response
+  try {
+    response = await fetch(url, {
+      method: 'POST',
+      headers,
+      body: JSON.stringify(body)
+    })
+  } catch (e) {
+    console.error('[Fast Translation] Network error:', e.message)
+    throw new Error('网络错误，请检查 DeepLX 是否运行')
+  }
+
+  console.log('[Fast Translation] Response status:', response.status)
 
   if (!response.ok) {
+    const errorText = await response.text().catch(() => '')
+    console.error('[Fast Translation] HTTP error:', response.status, errorText)
     throw new Error(`请求失败 (${response.status})`)
   }
 
   const data = await response.json()
+  console.log('[Fast Translation] Response data:', JSON.stringify(data))
+
   if (data.code !== 200) {
     throw new Error(data.message || '翻译失败')
   }

@@ -54,10 +54,8 @@ async function checkServiceStatus(endpoint) {
     const controller = new AbortController()
     const timeoutId = setTimeout(() => controller.abort(), 5000)
 
-    const response = await fetch(endpoint + '/translate', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ text: 'test', target_lang: 'ZH' }),
+    const response = await fetch(endpoint + '/', {
+      method: 'GET',
       signal: controller.signal
     })
     clearTimeout(timeoutId)
@@ -90,6 +88,7 @@ function saveSettings() {
       if (response && response.success) {
         showToast('设置已保存', true)
         setTimeout(() => window.close(), 1000)
+        window.flash = true
       } else {
         showToast('保存失败', false)
       }

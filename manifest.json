@@ -38,7 +38,7 @@
   "commands": {
     "toggle-translation": {
       "suggested_key": {
-        "default": "Ctrl+Shift+T"
+        "default": "Ctrl+B"
       },
       "description": "启用/关闭翻译功能"
     }
